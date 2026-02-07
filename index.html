@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Week for My Love 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose-pink: #ff6b9d;
+            --soft-pink: #ffc2d1;
+            --cream: #fff5f7;
+            --gold: #d4af37;
+            --deep-pink: #c9184a;
+            --lavender: #e5d4ed;
+            --text-dark: #2d1b2e;
+        }
+
+```
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Cormorant Garamond', serif;
+        background: linear-gradient(135deg, var(--cream) 0%, var(--lavender) 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* Floating hearts background */
+    .floating-hearts {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .heart-bg {
+        position: absolute;
+        font-size: 20px;
+        color: var(--rose-pink);
+        opacity: 0.15;
+        animation: float-up 15s infinite ease-in-out;
+    }
+
+    @keyframes float-up {
+        0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+        10% { opacity: 0.15; }
+        90% { opacity: 0.15; }
+        100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Falling flowers animation for special days */
+    .falling-flowers {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 100;
+        overflow: hidden;
+    }
+
+    .flower {
+        position: absolute;
+        font-size: 30px;
+        animation: fall 8s linear infinite;
+    }
+
+    @keyframes fall {
+        0% { top: -10%; transform: translateX(0) rotate(0deg); opacity: 1; }
+        100% { top: 110%; transform: translateX(100px) rotate(360deg); opacity: 0; }
+    }
+
+    /* Pages Container */
+    .page {
+        display: none;
+        min-height: 100vh;
+        padding: 40px 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .page.active {
+        display: block;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Home Page */
+    #homePage {
+        display: block;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 60px;
+        animation: fadeInDown 1s ease-out;
+    }
+
+    h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.5rem;
+        color: var(--deep-pink);
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .subtitle {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.8rem;
+        color: var(--rose-pink);
+        margin-top: 10px;
+    }
+
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Letter Grid */
+    .letters-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .letter-card {
+        background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,242,245,0.9) 100%);
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+        border: 3px solid transparent;
+        position: relative;
+        overflow: hidden;
+        animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .letter-card:nth-child(1) { animation-delay: 0.1s; }
+    .letter-card:nth-child(2) { animation-delay: 0.2s; }
+    .letter-card:nth-child(3) { animation-delay: 0.3s; }
+    .letter-card:nth-child(4) { animation-delay: 0.4s; }
+    .letter-card:nth-child(5) { animation-delay: 0.5s; }
+    .letter-card:nth-child(6) { animation-delay: 0.6s; }
+    .letter-card:nth-child(7) { animation-delay: 0.7s; }
+    .letter-card:nth-child(8) { animation-delay: 0.8s; }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .letter-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+        transform: rotate(45deg);
+        transition: all 0.6s;
+    }
+
+    .letter-card:hover::before {
+        left: 100%;
+    }
+
+    .letter-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 20px 50px rgba(255, 107, 157, 0.4);
+        border-color: var(--rose-pink);
+    }
+
+    .letter-card.locked {
+        opacity: 0.5;
+        cursor: not-allowed;
+        filter: grayscale(0.5);
+    }
+
+    .letter-card.locked:hover {
+        transform: none;
+        box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+    }
+
+    .letter-icon {
+        font-size: 5rem;
+        margin-bottom: 20px;
+        animation: bounce 2s infinite;
+        filter: drop-shadow(0 5px 15px rgba(255, 107, 157, 0.3));
+        transition: all 0.3s;
+    }
+
+    .letter-card:hover .letter-icon {
+        transform: scale(1.2) rotate(5deg);
+        filter: drop-shadow(0 10px 25px rgba(255, 107, 157, 0.5));
+    }
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .letter-date {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.3rem;
+        color: var(--rose-pink);
+        margin-bottom: 10px;
+    }
+
+    .letter-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        color: var(--deep-pink);
+        margin-bottom: 5px;
+    }
+
+    .letter-status {
+        font-size: 0.95rem;
+        color: #666;
+        font-style: italic;
+    }
+
+    .unlock-indicator {
+        display: inline-block;
+        padding: 5px 15px;
+        background: var(--gold);
+        color: white;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        margin-top: 10px;
+    }
+
+    /* Individual Letter Pages */
+    .letter-page {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 30px;
+        padding: 60px 40px;
+        box-shadow: 0 30px 90px rgba(0,0,0,0.2);
+        position: relative;
+    }
+
+    .back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 25px;
+        background: var(--rose-pink);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+
+    .back-button:hover {
+        background: var(--deep-pink);
+        transform: translateX(-5px);
+    }
+
+    .letter-page h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: var(--deep-pink);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .letter-page .date {
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.5rem;
+        color: var(--rose-pink);
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .letter-text {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        color: var(--text-dark);
+        margin-bottom: 40px;
+    }
+
+    /* Photo Collage */
+    .photo-collage {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin: 40px 0;
+    }
+
+    .photo-item {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        transition: all 0.4s;
+        cursor: pointer;
+    }
+
+    .photo-item:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 20px 50px rgba(255, 107, 157, 0.4);
+    }
+
+    .photo-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .photo-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        color: white;
+        padding: 20px;
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.2rem;
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+    }
+
+    .photo-item:hover .photo-caption {
+        transform: translateY(0);
+    }
+
+    /* Polaroid Collage */
+    .polaroid-collage {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 35px;
+        margin: 50px 0;
+        padding: 30px;
+    }
+
+    .polaroid {
+        background: white;
+        padding: 20px;
+        padding-bottom: 80px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        transform: rotate(var(--rotation));
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+    }
+
+    .polaroid:nth-child(1) { --rotation: -4deg; }
+    .polaroid:nth-child(2) { --rotation: 3deg; }
+    .polaroid:nth-child(3) { --rotation: -2deg; }
+    .polaroid:nth-child(4) { --rotation: 4deg; }
+    .polaroid:nth-child(5) { --rotation: -3deg; }
+    .polaroid:nth-child(6) { --rotation: 2deg; }
+
+    .polaroid:hover {
+        transform: rotate(0deg) scale(1.15);
+        box-shadow: 0 25px 70px rgba(255, 107, 157, 0.5);
+        z-index: 10;
+    }
+
+    .polaroid img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .polaroid-caption {
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+        font-size: 1.3rem;
+        color: var(--text-dark);
+    }
+
+    /* GIF Container */
+    .gif-container {
+        margin: 50px 0;
+        border-radius: 25px;
+        overflow: hidden;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .gif-container img {
+        width: 100%;
+        display: block;
+    }
+
+    /* Yes/No Buttons */
+    .yesno-container {
+        text-align: center;
+        margin: 60px 0;
+    }
+
+    .yesno-container h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--deep-pink);
+        margin-bottom: 40px;
+    }
+
+    .yesno-buttons {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        margin-top: 50px;
+        flex-wrap: wrap;
+    }
+
+    .yes-btn {
+        padding: 25px 70px;
+        font-size: 1.8rem;
+        background: linear-gradient(135deg, #90ee90, #228b22);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.4s;
+        box-shadow: 0 10px 30px rgba(0,255,0,0.3);
+        font-family: 'Cormorant Garamond', serif;
+    }
+
+    .yes-btn:hover {
+        transform: scale(1.2) rotate(-5deg);
+        box-shadow: 0 15px 50px rgba(0,255,0,0.5);
+    }
+
+    .no-btn {
+        padding: 25px 70px;
+        font-size: 1.8rem;
+        background: linear-gradient(135deg, #ffcccb, #dc143c);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+        box-shadow: 0 10px 30px rgba(255,0,0,0.3);
+        font-family: 'Cormorant Garamond', serif;
+    }
+
+    .no-btn:hover {
+        transform: translate(var(--move-x, 0), var(--move-y, 0)) scale(0.85);
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 18px 40px;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.3rem;
+        background: linear-gradient(135deg, var(--rose-pink), var(--deep-pink));
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.4s;
+        box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+        margin: 10px;
+    }
+
+    .btn:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 12px 35px rgba(255, 107, 157, 0.5);
+    }
+
+    /* Puzzle Modal */
+    .puzzle-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+    }
+
+    .puzzle-content {
+        background: linear-gradient(135deg, #fff 0%, #fff5f7 100%);
+        margin: 5% auto;
+        padding: 50px;
+        max-width: 650px;
+        border-radius: 30px;
+        box-shadow: 0 30px 90px rgba(0,0,0,0.5);
+        text-align: center;
+    }
+
+    .puzzle-content h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.3rem;
+        color: var(--deep-pink);
+        margin-bottom: 25px;
+    }
+
+    .puzzle-content p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        color: var(--text-dark);
+    }
+
+    .close {
+        float: right;
+        font-size: 40px;
+        font-weight: bold;
+        color: var(--deep-pink);
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .close:hover {
+        color: var(--rose-pink);
+        transform: rotate(90deg);
+    }
+
+    /* Memory Game */
+    .memory-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin: 35px auto;
+        max-width: 550px;
+    }
+
+    .memory-card {
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, var(--rose-pink), var(--deep-pink));
+        border-radius: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.8rem;
+        transition: all 0.4s;
+        position: relative;
+        transform-style: preserve-3d;
+    }
+
+    .memory-card.flipped {
+        transform: rotateY(180deg);
+    }
+
+    .memory-card.matched {
+        background: linear-gradient(135deg, var(--gold), #f4a261);
+        pointer-events: none;
+    }
+
+    .memory-card .front,
+    .memory-card .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backface-visibility: hidden;
+        border-radius: 18px;
+    }
+
+    .memory-card .front {
+        background: linear-gradient(135deg, var(--rose-pink), var(--deep-pink));
+    }
+
+    .memory-card .back {
+        background: white;
+        transform: rotateY(180deg);
+    }
+
+    /* Word Puzzle */
+    .word-puzzle-container {
+        margin: 35px auto;
+        max-width: 550px;
+    }
+
+    .word-input {
+        width: 100%;
+        padding: 18px 25px;
+        font-size: 1.3rem;
+        font-family: 'Cormorant Garamond', serif;
+        border: 3px solid var(--rose-pink);
+        border-radius: 18px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .word-hint {
+        font-size: 1.2rem;
+        color: var(--text-dark);
+        font-style: italic;
+        margin-bottom: 25px;
+    }
+
+    /* Quiz */
+    .quiz-container {
+        margin: 35px auto;
+    }
+
+    .quiz-option {
+        background: white;
+        padding: 18px 30px;
+        margin: 15px 0;
+        border-radius: 18px;
+        border: 3px solid var(--soft-pink);
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 1.2rem;
+    }
+
+    .quiz-option:hover {
+        background: var(--soft-pink);
+        transform: translateX(15px);
+    }
+
+    .quiz-option.correct {
+        background: #90ee90;
+        border-color: #228b22;
+    }
+
+    .quiz-option.wrong {
+        background: #ffcccb;
+        border-color: #dc143c;
+    }
+
+    /* Success Message */
+    .success-message {
+        background: linear-gradient(135deg, #90ee90, #228b22);
+        color: white;
+        padding: 25px;
+        border-radius: 18px;
+        margin: 25px 0;
+        text-align: center;
+        font-size: 1.3rem;
+        display: none;
+    }
+
+    /* Confetti */
+    .confetti {
+        position: fixed;
+        width: 12px;
+        height: 12px;
+        background: var(--rose-pink);
+        animation: confetti-fall 3s linear forwards;
+    }
+
+    @keyframes confetti-fall {
+        to {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    /* Music Player */
+    .music-player {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+    }
+
+    .music-toggle {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--rose-pink), var(--deep-pink));
+        border: none;
+        color: white;
+        font-size: 1.8rem;
+        cursor: pointer;
+        box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+        transition: all 0.3s;
+    }
+
+    .music-toggle:hover {
+        transform: scale(1.15);
+        box-shadow: 0 15px 40px rgba(255, 107, 157, 0.7);
+    }
+
+    .music-toggle.playing {
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        h1 { font-size: 2.5rem; }
+        .subtitle { font-size: 1.4rem; }
+        .letters-grid { grid-template-columns: 1fr; }
+        .letter-page { padding: 40px 25px; }
+        .letter-page h2 { font-size: 2.2rem; }
+        .memory-grid { grid-template-columns: repeat(3, 1fr); }
+        .yesno-buttons { flex-direction: column; align-items: center; }
+        .polaroid-collage { grid-template-columns: 1fr; }
+        .photo-collage { grid-template-columns: 1fr; }
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+```
+<!-- Falling flowers (only visible on special pages) -->
+<div class="falling-flowers" id="fallingFlowers" style="display: none;"></div>
+
+<!-- HOME PAGE -->
+<div id="homePage" class="page active">
+    <div class="container">
+        <header>
+            <h1>💕 Our Valentine's Week 💕</h1>
+            <p class="subtitle">Eight Days of Love</p>
+        </header>
+
+        <div class="letters-grid">
+            <div class="letter-card" data-day="1" data-date="2026-02-06" onclick="checkAndOpenLetter(1)">
+                <div class="letter-icon">💌</div>
+                <div class="letter-date">February 7</div>
+                <div class="letter-title">Rose Day</div>
+                <div class="letter-status">Click to unlock</div>
+                <div class="unlock-indicator" style="display: none;">Unlocked!</div>
+            </div>
+
+            <div class="letter-card" data-day="2" data-date="2026-02-06" onclick="checkAndOpenLetter(2)">
+                <div class="letter-icon">💌</div>
+                <div class="letter-date">February 8</div>
+                <div class="letter-title">Propose Day</div>
+                <div class="letter-status">Locked until Feb 8</div>
+                <div class="unlock-indicator" style="display: none;">Unlocked!</div>
+            </div>
+
+            <div class="letter-card" data-day="3" data-date="2026-02-06" onclick="checkAndOpenLetter(3)">
+                <div class="letter-icon">💌</div>
+                <div class="letter-date">February 9</div>
+                <div class="letter-title">Chocolate Day</div>
+                <div class="letter-status">Locked until Feb 9</div>
+                <div class="unlock-indicator" style="display: none;">Unlocked!</div>
+            </div>
+
+            <div class="letter-card" data-day="4" data-date="2026-02-06" onclick="checkAndOpenLetter(4)">
+                <div class="letter-icon">💌</div>
+                <div class="letter-date">February 10</div>
+                <div class="letter-title">Teddy Day</div>
+                <div class="letter-status">Locked until Feb 10</div>
+                <div class="unlock-indicator" style="display: none;">Unlocked!</div>
+            </div>
+
+            <div class="letter-card" data-day="5" data-date="2026-02-06" onclick="checkAndOpenLetter(5)">
+                <div class="letter-icon">💌</div>
+                <div class="letter-date">February 11</div>
+                <div class="letter-title">Promise Day</div>
+                <div class="letter-status">Locked until Feb 11</div>
+                <div class="unlock-indicator" style="display: none;">Unlocked!</div>
+            </div>
+
+            <div class="letter-card" data-day="6" data-date="2026-02-06" onclick="checkAndOpenLetter(6)">
+                <div class="letter-icon">💌</div>
+                <div class="letter-date">February 12</div>
+                <div class="letter-title">Hug Day</div>
+                <div class="letter-status">Locked until Feb 12</div>
+                <div class="unlock-indicator" style="display: none;">Unlocked!</div>
+            </div>
+
+            <div class="letter-card" data-day="7" data-date="2026-02-06" onclick="checkAndOpenLetter(7)">
+                <div class="letter-icon">💌</div>
+                <div class="letter-date">February 13</div>
+                <div class="letter-title">Kiss Day</div>
+                <div class="letter-status">Locked until Feb 13</div>
+                <div class="unlock-indicator" style="display: none;">Unlocked!</div>
+            </div>
+
+            <div class="letter-card" data-day="8" data-date="2026-02-06" onclick="checkAndOpenLetter(8)">
+                <div class="letter-icon">💌</div>
+                <div class="letter-date">February 14</div>
+                <div class="letter-title">Valentine's Day</div>
+                <div class="letter-status">Locked until Feb 14</div>
+                <div class="unlock-indicator" style="display: none;">Unlocked!</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DAY 1: ROSE DAY PAGE -->
+<div id="day1Page" class="page">
+    <div class="letter-page">
+        <button class="back-button" onclick="goHome()">← Back</button>
+        <h2>🌹 Rose Day 🌹</h2>
+        <p class="date">February 7, 2026</p>
+        
+        <div class="letter-text">
+            <p style="margin-bottom: 20px;">My dearest love,</p>
+            <p style="margin-bottom: 20px;">Just like this rose blooms with beauty, my love for you grows stronger every single day. Today marks the beginning of our special week, and I want you to know that you are the most precious person in my life.</p>
+            <p style="margin-bottom: 20px;">Every moment with you feels like a dream come true. Your smile lights up my world, and your laughter is my favorite melody. You've brought so much color and joy into my life, just like a beautiful garden of roses.</p>
+        </div>
+
+        <div class="photo-collage">
+            <div class="photo-item">
+                <img src="images/rose-day-1.jpg" alt="Our Memory 1" onerror="this.src='https://via.placeholder.com/400x300/ff6b9d/ffffff?text=Add+rose-day-1.jpg'">
+                <div class="photo-caption">Our first date 💕</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/rose-day-2.jpg" alt="Our Memory 2" onerror="this.src='https://via.placeholder.com/400x300/ffc2d1/ffffff?text=Add+rose-day-2.jpg'">
+                <div class="photo-caption">When you smiled at me ✨</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/rose-day-3.jpg" alt="Our Memory 3" onerror="this.src='https://via.placeholder.com/400x300/e5d4ed/ffffff?text=Add+rose-day-3.jpg'">
+                <div class="photo-caption">Perfect moment 🌹</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="font-size: 1.5rem; font-style: italic; color: var(--deep-pink);">Forever yours,<br>Your Love 💕</p>
+        </div>
+    </div>
+</div>
+
+<!-- DAY 2: PROPOSE DAY PAGE -->
+<div id="day2Page" class="page">
+    <div class="letter-page">
+        <button class="back-button" onclick="goHome()">← Back</button>
+        <h2>💍 Propose Day 💍</h2>
+        <p class="date">February 8, 2026</p>
+        
+        <div class="letter-text">
+            <p style="margin-bottom: 20px;">My beautiful soulmate,</p>
+            <p style="margin-bottom: 20px;">Every day I choose you. Every day I fall in love with you all over again. You make my heart skip a beat, and being with you feels like coming home.</p>
+            <p style="margin-bottom: 30px;">From the moment I met you, I knew you were special. And now, I can't imagine my life without you in it. You complete me in ways I never knew were possible.</p>
+        </div>
+
+        <div class="photo-collage">
+            <div class="photo-item">
+                <img src="images/propose-day-1.jpg" alt="Proposal Memory 1" onerror="this.src='https://via.placeholder.com/400x300/ff6b9d/ffffff?text=Add+propose-day-1.jpg'">
+                <div class="photo-caption">The day I knew 💍</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/propose-day-2.jpg" alt="Proposal Memory 2" onerror="this.src='https://via.placeholder.com/400x300/ffc2d1/ffffff?text=Add+propose-day-2.jpg'">
+                <div class="photo-caption">You said yes! 💕</div>
+            </div>
+        </div>
+
+        <div class="yesno-container">
+            <h3>Will you continue to be mine, today, tomorrow, and forever? 💕</h3>
+            <div class="gif-container">
+                <img src="images/propose-day-gif.gif" alt="Proposal" onerror="this.src='https://media.giphy.com/media/3o7qE1YN7aBOFPRw8E/giphy.gif'">
+            </div>
+            <div class="yesno-buttons">
+                <button class="yes-btn" onclick="handleProposalYes()">YES! 💕</button>
+                <button class="no-btn" id="proposalNoBtn" onmouseover="moveNoButton('proposalNoBtn')" onclick="handleProposalNo()">No</button>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="font-size: 1.5rem; font-style: italic; color: var(--deep-pink);">Always and forever,<br>Your Forever Person 💍</p>
+        </div>
+    </div>
+</div>
+
+<!-- DAY 3: CHOCOLATE DAY PAGE -->
+<div id="day3Page" class="page">
+    <div class="letter-page">
+        <button class="back-button" onclick="goHome()">← Back</button>
+        <h2>🍫 Chocolate Day 🍫</h2>
+        <p class="date">February 9, 2026</p>
+        
+        <div class="letter-text">
+            <p style="margin-bottom: 20px;">Sweet love of my life,</p>
+            <p style="margin-bottom: 20px;">You're sweeter than any chocolate in the world! Your sweetness fills my life with joy, and your love is the most delicious treat I could ever ask for.</p>
+            <p style="margin-bottom: 30px;">Life with you is like an endless box of chocolates - every moment is a delightful surprise, and I'm always excited to see what beautiful memory we'll create next!</p>
+        </div>
+
+        <div class="photo-collage">
+            <div class="photo-item">
+                <img src="images/chocolate-day-1.jpg" alt="Sweet Memory 1" onerror="this.src='https://via.placeholder.com/400x300/8b4513/ffffff?text=Add+chocolate-day-1.jpg'">
+                <div class="photo-caption">Sweet moments 🍫</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/chocolate-day-2.jpg" alt="Sweet Memory 2" onerror="this.src='https://via.placeholder.com/400x300/d2691e/ffffff?text=Add+chocolate-day-2.jpg'">
+                <div class="photo-caption">Chocolate date 💝</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="font-size: 1.5rem; font-style: italic; color: var(--deep-pink);">Sweetly yours,<br>Your Chocolate Lover 🍫</p>
+        </div>
+    </div>
+</div>
+
+<!-- DAY 4: TEDDY DAY PAGE -->
+<div id="day4Page" class="page">
+    <div class="letter-page">
+        <button class="back-button" onclick="goHome()">← Back</button>
+        <h2>🧸 Teddy Day 🧸</h2>
+        <p class="date">February 10, 2026</p>
+        
+        <div class="letter-text">
+            <p style="margin-bottom: 20px;">My cuddly sweetheart,</p>
+            <p style="margin-bottom: 20px;">Just like a teddy bear brings comfort and warmth, you bring endless comfort, joy, and love into my life. Your hugs are my safe haven, and being in your arms feels like home.</p>
+            <p style="margin-bottom: 30px;">I want to hold you close today, tomorrow, and always. You're my favorite person to cuddle with, my source of comfort, and my warm embrace in this world.</p>
+        </div>
+
+        <div class="photo-collage">
+            <div class="photo-item">
+                <img src="images/teddy-day-1.jpg" alt="Cuddly Memory 1" onerror="this.src='https://via.placeholder.com/400x300/ff6b9d/ffffff?text=Add+teddy-day-1.jpg'">
+                <div class="photo-caption">Cuddle time 🧸</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/teddy-day-2.jpg" alt="Cuddly Memory 2" onerror="this.src='https://via.placeholder.com/400x300/ffc2d1/ffffff?text=Add+teddy-day-2.jpg'">
+                <div class="photo-caption">Cozy moments 💕</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="font-size: 1.5rem; font-style: italic; color: var(--deep-pink);">Cuddly yours,<br>Your Teddy Bear 🧸</p>
+        </div>
+    </div>
+</div>
+
+<!-- DAY 5: PROMISE DAY PAGE -->
+<div id="day5Page" class="page">
+    <div class="letter-page">
+        <button class="back-button" onclick="goHome()">← Back</button>
+        <h2>🤝 Promise Day 🤝</h2>
+        <p class="date">February 11, 2026</p>
+        
+        <div class="letter-text">
+            <p style="margin-bottom: 30px;">My forever promise,</p>
+            <p style="margin-bottom: 20px; font-size: 1.4rem; font-weight: bold; color: var(--deep-pink);">Today I renew my promises to you:</p>
+            <ul style="text-align: left; font-size: 1.2rem; line-height: 2.2; margin: 30px 0; padding-left: 40px;">
+                <li>I promise to love you unconditionally</li>
+                <li>I promise to support your dreams</li>
+                <li>I promise to make you smile every single day</li>
+                <li>I promise to be your best friend and partner</li>
+                <li>I promise to cherish every moment with you</li>
+                <li>I promise to choose you, always</li>
+            </ul>
+        </div>
+
+        <div class="photo-collage">
+            <div class="photo-item">
+                <img src="images/promise-day-1.jpg" alt="Promise Memory 1" onerror="this.src='https://via.placeholder.com/400x300/ff6b9d/ffffff?text=Add+promise-day-1.jpg'">
+                <div class="photo-caption">Pinky promise 🤝</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/promise-day-2.jpg" alt="Promise Memory 2" onerror="this.src='https://via.placeholder.com/400x300/ffc2d1/ffffff?text=Add+promise-day-2.jpg'">
+                <div class="photo-caption">Forever together 💕</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="font-size: 1.5rem; font-style: italic; color: var(--deep-pink);">Promised to you,<br>Your Keeper of Promises 🤝</p>
+        </div>
+    </div>
+</div>
+
+<!-- DAY 6: HUG DAY PAGE -->
+<div id="day6Page" class="page">
+    <div class="letter-page">
+        <button class="back-button" onclick="goHome()">← Back</button>
+        <h2>🤗 Hug Day 🤗</h2>
+        <p class="date">February 12, 2026</p>
+        
+        <div class="letter-text">
+            <p style="margin-bottom: 20px;">My warm embrace,</p>
+            <p style="margin-bottom: 20px;">Your hugs are my favorite place in the entire world. In your arms, I find peace, comfort, love, and home. Every hug from you recharges my soul and reminds me how lucky I am to have you.</p>
+            <p style="margin-bottom: 30px;">Can't wait to hold you close and never let go! Being wrapped in your arms is the best feeling in the world. 🤗</p>
+        </div>
+
+        <div class="photo-collage">
+            <div class="photo-item">
+                <img src="images/hug-day-1.jpg" alt="Hug Memory 1" onerror="this.src='https://via.placeholder.com/400x300/ff6b9d/ffffff?text=Add+hug-day-1.jpg'">
+                <div class="photo-caption">The best hugs 🤗</div>
+            </div>
+            <div class="photo-item">
+                <img src="images/hug-day-2.jpg" alt="Hug Memory 2" onerror="this.src='https://via.placeholder.com/400x300/ffc2d1/ffffff?text=Add+hug-day-2.jpg'">
+                <div class="photo-caption">Never letting go 💖</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="font-size: 1.5rem; font-style: italic; color: var(--deep-pink);">Hugging you forever,<br>Your Warm Embrace 🤗</p>
+        </div>
+    </div>
+</div>
+
+<!-- DAY 7: KISS DAY PAGE -->
+<div id="day7Page" class="page">
+    <div class="letter-page">
+        <button class="back-button" onclick="goHome()">← Back</button>
+        <h2>💋 Kiss Day 💋</h2>
+        <p class="date">February 13, 2026</p>
+        
+        <div class="letter-text">
+            <p style="margin-bottom: 20px;">My sweetest love,</p>
+            <p style="margin-bottom: 20px;">Your kisses are pure magic - they make my heart skip a beat, my world stop spinning, and remind me that I'm the luckiest person alive. Every kiss is a promise, a moment of pure bliss, a reminder of our incredible love.</p>
+            <p style="margin-bottom: 30px;">From our first kiss to this moment, each one has been more special than the last. Your lips on mine feel like coming home, like finding paradise, like discovering heaven on earth. 💋</p>
+        </div>
+
+        <div class="photo-collage">
+            <div class="photo-item">
+                <img src="images/kiss-day-1.jpg" alt="Kiss Memory" onerror="this.src='https://via.placeholder.com/800x400/ff6b9d/ffffff?text=Add+kiss-day-1.jpg'">
+                <div class="photo-caption">Our magical kiss 💋</div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <p style="font-size: 1.5rem; font-style: italic; color: var(--deep-pink);">Kissing you forever,<br>Your Love 💋</p>
+        </div>
+    </div>
+</div>
+
+<!-- DAY 8: VALENTINE'S DAY PAGE -->
+<div id="day8Page" class="page">
+    <div class="letter-page">
+        <button class="back-button" onclick="goHome()">← Back</button>
+        <h2>❤️ Valentine's Day ❤️</h2>
+        <p class="date">February 14, 2026</p>
+        
+        <div class="letter-text">
+            <p style="font-size: 1.6rem; text-align: center; color: var(--deep-pink); margin-bottom: 40px;">Happy Valentine's Day, My Everything! ❤️</p>
+            <p style="margin-bottom: 20px;">Today is the day to celebrate US - our love, our journey, our beautiful story together. You are not just my Valentine; you are my forever, my soulmate, my best friend, and my greatest love.</p>
+            <p style="margin-bottom: 30px;">Every single day with you is Valentine's Day because you fill my life with so much love, joy, and happiness. Thank you for being YOU, for loving ME, and for making every moment magical.</p>
+        </div>
+
+        <div class="polaroid-collage">
+            <div class="polaroid">
+                <img src="images/vday-1.jpg" alt="Valentine Memory 1" onerror="this.src='https://via.placeholder.com/350x280/ff6b9d/ffffff?text=Add+vday-1.jpg'">
+                <div class="polaroid-caption">Our first kiss 💋</div>
+            </div>
+            <div class="polaroid">
+                <img src="images/vday-2.jpg" alt="Valentine Memory 2" onerror="this.src='https://via.placeholder.com/350x280/ffc2d1/ffffff?text=Add+vday-2.jpg'">
+                <div class="polaroid-caption">When I fell for you 💕</div>
+            </div>
+            <div class="polaroid">
+                <img src="images/vday-3.jpg" alt="Valentine Memory 3" onerror="this.src='https://via.placeholder.com/350x280/e5d4ed/ffffff?text=Add+vday-3.jpg'">
+                <div class="polaroid-caption">Perfect date night ✨</div>
+            </div>
+            <div class="polaroid">
+                <img src="images/vday-4.jpg" alt="Valentine Memory 4" onerror="this.src='https://via.placeholder.com/350x280/ff85a1/ffffff?text=Add+vday-4.jpg'">
+                <div class="polaroid-caption">You and me 💑</div>
+            </div>
+            <div class="polaroid">
+                <img src="images/vday-5.jpg" alt="Valentine Memory 5" onerror="this.src='https://via.placeholder.com/350x280/ffb3c6/ffffff?text=Add+vday-5.jpg'">
+                <div class="polaroid-caption">Forever starts now 💍</div>
+            </div>
+            <div class="polaroid">
+                <img src="images/vday-6.jpg" alt="Valentine Memory 6" onerror="this.src='https://via.placeholder.com/350x280/f4c2d1/ffffff?text=Add+vday-6.jpg'">
+                <div class="polaroid-caption">My favorite person ❤️</div>
+            </div>
+        </div>
+
+        <div class="yesno-container">
+            <h3>Will you be my Valentine forever? 💖</h3>
+            <div class="gif-container">
+                <img src="images/valentine-gif.gif" alt="Be Mine" onerror="this.src='https://media.giphy.com/media/l0HlNQ03J5JxX6lva/giphy.gif'">
+            </div>
+            <div class="yesno-buttons">
+                <button class="yes-btn" onclick="handleValentineYes()">YES! 💕</button>
+                <button class="no-btn" id="valentineNoBtn" onmouseover="moveNoButton('valentineNoBtn')" onclick="handleValentineNo()">No</button>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+            <p style="font-size: 1.7rem; font-style: italic; color: var(--deep-pink);">I love you more than words can express,<br>Forever and always,<br>Your Valentine ❤️</p>
+        </div>
+    </div>
+</div>
+
+<!-- Puzzle Modal -->
+<div id="puzzleModal" class="puzzle-modal">
+    <div class="puzzle-content">
+        <span class="close" onclick="closePuzzle()">&times;</span>
+        <div id="puzzleContainer"></div>
+    </div>
+</div>
+
+<!-- Music Player -->
+<div class="music-player">
+    <button class="music-toggle" id="musicToggle" onclick="toggleMusic()">🎵</button>
+    <audio id="bgMusic" loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script>
+    // Letter data with puzzles
+    const letterData = {
+        1: {
+            title: "Rose Day 🌹",
+            date: "2026-02-07",
+            puzzleType: "word",
+            puzzle: {
+                question: "What's our special word that means 'I love you'?",
+                hint: "Think about what I always say to you...",
+                answer: "forever" // CHANGE THIS
+            }
+        },
+        2: {
+            title: "Propose Day 💍",
+            date: "2026-02-08",
+            puzzleType: "memory",
+            puzzle: {
+                cards: ["💕", "💖", "💗", "💝", "💕", "💖", "💗", "💝"]
+            }
+        },
+        3: {
+            title: "Chocolate Day 🍫",
+            date: "2026-02-09",
+            puzzleType: "quiz",
+            puzzle: {
+                question: "What's my favorite thing about you?",
+                options: [
+                    "Your beautiful smile",
+                    "Your kind heart",
+                    "Everything about you",
+                    "Your amazing laugh"
+                ],
+                correctAnswer: 2
+            }
+        },
+        4: {
+            title: "Teddy Day 🧸",
+            date: "2026-02-10",
+            puzzleType: "word",
+            puzzle: {
+                question: "Complete the sentence: You give me the best ____",
+                hint: "Think about how I make you feel...",
+                answer: "hugs" // CHANGE THIS
+            }
+        },
+        5: {
+            title: "Promise Day 🤝",
+            date: "2026-02-11",
+            puzzleType: "quiz",
+            puzzle: {
+                question: "What do I promise you?",
+                options: [
+                    "To love you forever",
+                    "To make you smile every day",
+                    "To be by your side always",
+                    "All of the above"
+                ],
+                correctAnswer: 3
+            }
+        },
+        6: {
+            title: "Hug Day 🤗",
+            date: "2026-02-12",
+            puzzleType: "memory",
+            puzzle: {
+                cards: ["🤗", "💝", "🌟", "✨", "🤗", "💝", "🌟", "✨"]
+            }
+        },
+        7: {
+            title: "Kiss Day 💋",
+            date: "2026-02-13",
+            puzzleType: "word",
+            puzzle: {
+                question: "What makes my heart race?",
+                hint: "Think about what you give me...",
+                answer: "kisses" // CHANGE THIS
+            }
+        },
+        8: {
+            title: "Valentine's Day ❤️",
+            date: "2026-02-14",
+            puzzleType: "word",
+            puzzle: {
+                question: "What are we?",
+                hint: "Two words that describe our relationship...",
+                answer: "soulmates" // CHANGE THIS
+            }
+        }
+    };
+
+    // Initialize
+    function createFloatingHearts() {
+        const container = document.getElementById('floatingHearts');
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.className = 'heart-bg';
+            heart.innerHTML = '💕';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 15 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            container.appendChild(heart);
+        }
+    }
+
+    // Falling flowers for Propose Day and Valentine's Day
+    function showFallingFlowers() {
+        const container = document.getElementById('fallingFlowers');
+        container.style.display = 'block';
+        container.innerHTML = '';
+        
+        const flowers = ['🌸', '🌺', '🌼', '🌻', '🌷', '🌹'];
+        for (let i = 0; i < 15; i++) {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + '%';
+            flower.style.animationDelay = Math.random() * 5 + 's';
+            flower.style.animationDuration = (Math.random() * 4 + 6) + 's';
+            container.appendChild(flower);
+        }
+    }
+
+    function hideFallingFlowers() {
+        document.getElementById('fallingFlowers').style.display = 'none';
+    }
+
+    // Check dates
+    function checkDates() {
+        const today = new Date();
+        const cards = document.querySelectorAll('.letter-card');
+        
+        cards.forEach(card => {
+            const cardDate = new Date(card.dataset.date);
+            const day = card.dataset.day;
+            const unlockIndicator = card.querySelector('.unlock-indicator');
+            const status = card.querySelector('.letter-status');
+            
+            const puzzleSolved = localStorage.getItem(`puzzle-${day}-solved`) === 'true';
+            
+            if (today >= cardDate) {
+                card.classList.remove('locked');
+                if (puzzleSolved) {
+                    unlockIndicator.style.display = 'inline-block';
+                    status.textContent = 'Unlocked! Click to read';
+                } else {
+                    status.textContent = 'Solve puzzle to unlock';
+                }
+            } else {
+                card.classList.add('locked');
+            }
+        });
+    }
+
+    // Check and open letter
+    function checkAndOpenLetter(day) {
+        const card = document.querySelector(`[data-day="${day}"]`);
+        const cardDate = new Date(card.dataset.date);
+        const today = new Date();
+        
+        if (today < cardDate) {
+            alert('This letter is not available yet! Come back on ' + cardDate.toLocaleDateString());
+            return;
+        }
+        
+        const puzzleSolved = localStorage.getItem(`puzzle-${day}-solved`) === 'true';
+        
+        if (!puzzleSolved) {
+            showPuzzle(day);
+        } else {
+            openLetterPage(day);
+        }
+    }
+
+    // Open letter page
+    function openLetterPage(day) {
+        // Hide all pages
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        
+        // Show the specific day page
+        const dayPage = document.getElementById(`day${day}Page`);
+        dayPage.classList.add('active');
+        
+        // Show flowers for Propose Day (2) and Valentine's Day (8)
+        if (day === 2 || day === 8) {
+            showFallingFlowers();
+        } else {
+            hideFallingFlowers();
+        }
+        
+        createConfetti();
+    }
+
+    // Go home
+    function goHome() {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById('homePage').classList.add('active');
+        hideFallingFlowers();
+    }
+
+    // Show puzzle
+    function showPuzzle(day) {
+        const data = letterData[day];
+        const modal = document.getElementById('puzzleModal');
+        const container = document.getElementById('puzzleContainer');
+        
+        container.innerHTML = `
+            <h3>🔒 Unlock ${data.title}</h3>
+            <p>Complete this puzzle to unlock today's letter!</p>
+        `;
+        
+        if (data.puzzleType === 'word') {
+            container.innerHTML += `
+                <div class="word-puzzle-container">
+                    <p class="word-hint">${data.puzzle.question}</p>
+                    <p class="word-hint" style="font-size: 1rem; color: #999;">Hint: ${data.puzzle.hint}</p>
+                    <input type="text" class="word-input" id="wordInput" placeholder="Type your answer...">
+                    <button class="btn" onclick="checkWordPuzzle(${day})">Submit Answer</button>
+                </div>
+            `;
+        } else if (data.puzzleType === 'memory') {
+            container.innerHTML += `
+                <p>Match all the pairs to unlock!</p>
+                <div class="memory-grid" id="memoryGrid"></div>
+                <div class="success-message" id="memorySuccess">Perfect! Letter unlocked! 🎉</div>
+            `;
+            initMemoryGame(day, data.puzzle.cards);
+        } else if (data.puzzleType === 'quiz') {
+            container.innerHTML += `
+                <div class="quiz-container">
+                    <p style="font-size: 1.4rem; margin-bottom: 25px;">${data.puzzle.question}</p>
+                    ${data.puzzle.options.map((option, index) => `
+                        <div class="quiz-option" onclick="checkQuizAnswer(${day}, ${index})">${option}</div>
+                    `).join('')}
+                </div>
+                <div class="success-message" id="quizSuccess">Correct! Letter unlocked! 🎉</div>
+            `;
+        }
+        
+        modal.style.display = 'block';
+    }
+
+    // Close puzzle
+    function closePuzzle() {
+        document.getElementById('puzzleModal').style.display = 'none';
+    }
+
+    // Word puzzle
+    function checkWordPuzzle(day) {
+        const input = document.getElementById('wordInput').value.toLowerCase().trim();
+        const answer = letterData[day].puzzle.answer.toLowerCase();
+        
+        if (input === answer) {
+            localStorage.setItem(`puzzle-${day}-solved`, 'true');
+            createConfetti();
+            setTimeout(() => {
+                closePuzzle();
+                openLetterPage(day);
+                checkDates();
+            }, 1000);
+        } else {
+            alert('Not quite right! Try again 💕');
+        }
+    }
+
+    // Memory game
+    let memoryCards = [];
+    let flippedCards = [];
+    let matchedPairs = 0;
+
+    function initMemoryGame(day, cards) {
+        memoryCards = [...cards].sort(() => Math.random() - 0.5);
+        flippedCards = [];
+        matchedPairs = 0;
+        
+        const grid = document.getElementById('memoryGrid');
+        grid.innerHTML = '';
+        
+        memoryCards.forEach((card, index) => {
+            const cardElement = document.createElement('div');
+            cardElement.className = 'memory-card';
+            cardElement.dataset.index = index;
+            cardElement.dataset.value = card;
+            cardElement.innerHTML = `
+                <div class="front">❤️</div>
+                <div class="back">${card}</div>
+            `;
+            cardElement.onclick = () => flipMemoryCard(day, cardElement);
+            grid.appendChild(cardElement);
+        });
+    }
+
+    function flipMemoryCard(day, card) {
+        if (flippedCards.length >= 2 || card.classList.contains('flipped') || card.classList.contains('matched')) {
+            return;
+        }
+        
+        card.classList.add('flipped');
+        flippedCards.push(card);
+        
+        if (flippedCards.length === 2) {
+            setTimeout(() => checkMemoryMatch(day), 800);
+        }
+    }
+
+    function checkMemoryMatch(day) {
+        const [card1, card2] = flippedCards;
+        
+        if (card1.dataset.value === card2.dataset.value) {
+            card1.classList.add('matched');
+            card2.classList.add('matched');
+            matchedPairs++;
+            
+            if (matchedPairs === memoryCards.length / 2) {
+                localStorage.setItem(`puzzle-${day}-solved`, 'true');
+                document.getElementById('memorySuccess').style.display = 'block';
+                createConfetti();
+                setTimeout(() => {
+                    closePuzzle();
+                    openLetterPage(day);
+                    checkDates();
+                }, 2000);
+            }
+        } else {
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+        }
+        
+        flippedCards = [];
+    }
+
+    // Quiz
+    function checkQuizAnswer(day, selectedIndex) {
+        const correctIndex = letterData[day].puzzle.correctAnswer;
+        const options = document.querySelectorAll('.quiz-option');
+        
+        if (selectedIndex === correctIndex) {
+            options[selectedIndex].classList.add('correct');
+            localStorage.setItem(`puzzle-${day}-solved`, 'true');
+            document.getElementById('quizSuccess').style.display = 'block';
+            createConfetti();
+            setTimeout(() => {
+                closePuzzle();
+                openLetterPage(day);
+                checkDates();
+            }, 2000);
+        } else {
+            options[selectedIndex].classList.add('wrong');
+            setTimeout(() => {
+                options[selectedIndex].classList.remove('wrong');
+            }, 1000);
+        }
+    }
+
+    // Confetti
+    function createConfetti() {
+        const colors = ['#ff6b9d', '#ffc2d1', '#d4af37', '#e5d4ed'];
+        for (let i = 0; i < 50; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), 3000);
+        }
+    }
+
+    // Yes/No handlers for Propose Day
+    function handleProposalYes() {
+        createConfetti();
+        setTimeout(() => createConfetti(), 500);
+        setTimeout(() => createConfetti(), 1000);
+        alert('🎉 YAYYYY! I love you so much! Forever and always! 💕❤️💖');
+    }
+
+    function handleProposalNo() {
+        alert('😢 But... but... please say yes! You mean everything to me! 💔');
+    }
+
+    // Yes/No handlers for Valentine's Day
+    function handleValentineYes() {
+        createConfetti();
+        setTimeout(() => createConfetti(), 500);
+        setTimeout(() => createConfetti(), 1000);
+        setTimeout(() => createConfetti(), 1500);
+        alert('🎉 YES!! Best Valentine\'s Day ever! I love you more than words can say! 💕❤️💖✨');
+    }
+
+    function handleValentineNo() {
+        alert('😢 Noooo! My heart! Please reconsider! You\'re my everything! 💔');
+    }
+
+    // Move No button
+    function moveNoButton(btnId) {
+        const btn = document.getElementById(btnId);
+        const x = Math.random() * 200 - 100;
+        const y = Math.random() * 200 - 100;
+        btn.style.setProperty('--move-x', x + 'px');
+        btn.style.setProperty('--move-y', y + 'px');
+    }
+
+    // Music
+    let musicPlaying = false;
+    function toggleMusic() {
+        const music = document.getElementById('bgMusic');
+        const button = document.getElementById('musicToggle');
+        
+        if (musicPlaying) {
+            music.pause();
+            button.classList.remove('playing');
+            button.textContent = '🎵';
+            musicPlaying = false;
+        } else {
+            music.play();
+            button.classList.add('playing');
+            button.textContent = '🎶';
+            musicPlaying = true;
+        }
+    }
+
+    // Close modals on outside click
+    window.onclick = function(event) {
+        const puzzleModal = document.getElementById('puzzleModal');
+        if (event.target == puzzleModal) {
+            closePuzzle();
+        }
+    }
+
+    // Initialize
+    window.onload = function() {
+        createFloatingHearts();
+        checkDates();
+    }
+
+    // Check dates every hour
+    setInterval(checkDates, 3600000);
+</script>
+```
+
+</body>
+</html>
